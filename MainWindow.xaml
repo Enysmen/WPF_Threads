@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfApp.NET.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp.NET"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="543" Width="1072">
+    <Grid Background="#FFD1F3F3">
+
+        <Label Content="Enter the number of threads (limit from 2 to 15 threads):" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.386,-0.332" Width="328" FontFamily="Times New Roman" FontSize="14"/>
+        <TextBox x:Name="TextUser" HorizontalAlignment="Left" Margin="30,41,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="154" Height="22" FontFamily="Times New Roman" FontSize="14" TextChanged="EntryNumberUser" PreviewKeyDown="TextUser_PreviewKeyDown" PreviewTextInput="NumberValidationTextUser" MaxLength="2" CommandManager.PreviewExecuted="TextUser_PreviewExecuted" ContextMenu="{x:Null}" />
+        <Button Content="StartThreads" HorizontalAlignment="Left" Margin="30,88,0,0" VerticalAlignment="Top" Width="233" Click="StartThreads"/>
+        <ListView x:Name="ListViewThread"  Margin="348,0,0,112" FontFamily="Times New Roman" FontSize="14">
+            
+            
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="CurrentProcess" Header="CoreID" DisplayMemberBinding="{Binding Path = Coreid }" Width="150"/>
+                    <GridViewColumn x:Name="ViewDataThread" Header="ThreadID" DisplayMemberBinding="{Binding Path = Threadid }" Width="150"/>
+                    <GridViewColumn x:Name="ViewStringData" Header="GeneratedString " DisplayMemberBinding="{Binding Path = _FinalString}" Width="170"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="StopThread" HorizontalAlignment="Left" Margin="30,124,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.992,0.008" Width="233" Height="23" Click="StopThreads"/>
+
+
+    </Grid>
+</Window>
